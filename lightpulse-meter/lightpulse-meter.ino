@@ -1,17 +1,15 @@
-int LDR = 5;     //analog pin to which LDR is connected
-int LDRValue = 0;      //that’s a variable to store LDR values
+int LDR = 5;
+int LDRValue = 0;
 int LDRprevi = 0;
 
 int diferencia=10;
-
 int going_up=0;
-
 int count=0;
  
 void setup()
 {
   Serial.begin(9600);
-  //pinMode(13, OUTPUT);     //we mostly use 13 because there is already a built in yellow LED in arduino which shows output when 13 pin is enabled
+  //pinMode(13, OUTPUT);
     
   LDRprevi = analogRead(LDR);
 }
@@ -25,7 +23,7 @@ void loop()
   {
     if(going_up)
     {
-      Serial.print("PUM"); Serial.print(count); Serial.println(""); Serial.println("");
+      Serial.println(count);
       count++;
     }
     //digitalWrite(13, HIGH); 
