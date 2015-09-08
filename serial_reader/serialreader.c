@@ -19,7 +19,16 @@ int main(int argc, char *argv[])
   i=0; n=0; fd=0;
 
   /* open serial port */
-  fd = open("/dev/ttyACM0", O_RDWR | O_NOCTTY);
+  if(argc==1)
+    fd = open("/dev/ttyACM0", O_RDWR | O_NOCTTY);
+  else
+    fd = open(argv[1], O_RDWR | O_NOCTTY);
+
+  if(fd<0)
+  {
+    printf("error open()\n");
+    return 1;
+  }
   printf("fd %i\n", fd);
 
   /* wait for the Arduino to reboot */
@@ -62,7 +71,7 @@ int main(int argc, char *argv[])
 
     response[i]=0;
 
-    printf("%s\n", response);
+    printf("%s", response);
   }
 
   return 0;
