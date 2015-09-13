@@ -2,7 +2,7 @@ int LDR = 5;
 int LDRValue = 0;
 int LDRprevi = 0;
 
-int diferencia=15>;
+int diferencia=20;
 int going_up=0;
 int count=0;
  
@@ -22,12 +22,12 @@ void loop()
     
   if (LDRValue-LDRprevi > diferencia) 
   {
-    if(going_up)
+    if(!going_up)
     {
+      count++;
       Serial.println();
       Serial.println(count);
       Serial.println();
-      count++;
     }
     //digitalWrite(13, HIGH); 
     going_up=1;
@@ -35,9 +35,12 @@ void loop()
   else
   {
     //digitalWrite(13, LOW);
-    going_up=0;
+    if(LDRprevi-LDRValue > diferencia)
+    {
+      going_up=0;
+    }
   }
   
-  delay(100);
+  delay(10);
   LDRprevi=LDRValue;
 }
