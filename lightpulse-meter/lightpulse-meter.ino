@@ -25,9 +25,16 @@ void loop()
     if(!going_up)
     {
       count++;
-      Serial.println();
-      Serial.println(count);
-      Serial.println();
+      if (count==4000)
+      {
+        Serial.print("+1 ");
+        Serial.println(count);
+      }
+      else
+      {
+        Serial.print("0 ");
+        Serial.println(count);
+      }
     }
     //digitalWrite(13, HIGH); 
     going_up=1;
