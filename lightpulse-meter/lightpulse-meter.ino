@@ -29,6 +29,7 @@ void loop()
       {
         Serial.print("+1 ");
         Serial.println(count);
+        count=0;
       }
       else
       {
