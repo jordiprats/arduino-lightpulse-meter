@@ -27,7 +27,7 @@ void loop()
       count++;
       if (count==4000)
       {
-        Serial.print("+1 ");
+        Serial.print("1 ");
         Serial.println(count);
         count=0;
       }
