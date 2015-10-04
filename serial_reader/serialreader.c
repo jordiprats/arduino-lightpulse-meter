@@ -10,13 +10,13 @@
 
 int main(int argc, char *argv[])
 {
-  int fd, n, i;
+  int fd, n, i, contador;
   char buf = '\0';
   struct termios toptions;
 
   char response[1024];
   memset(response, '\0', sizeof(response));
-  i=0; n=0; fd=0;
+  i=0; n=0; fd=0; contador=0;
 
   /* open serial port */
   if(argc==1)
@@ -70,7 +70,12 @@ int main(int argc, char *argv[])
 
     response[i]=0;
 
-    printf("%s", response);
+    if(response[0]=='1')
+    {
+      contador++;
+    }
+
+    printf("%d %s", contador, response);
   }
 
   return 0;
