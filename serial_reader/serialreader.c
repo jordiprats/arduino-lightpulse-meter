@@ -63,7 +63,6 @@ int main(int argc, char *argv[])
       {
         //printf("%c\n",buf);
         response[i]=buf;
-        //i += n;
         i++;
       }
     }
